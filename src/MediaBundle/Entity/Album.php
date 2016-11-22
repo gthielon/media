@@ -3,6 +3,8 @@
 namespace MediaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * Album
@@ -13,7 +15,15 @@ use Doctrine\ORM\Mapping as ORM;
 class Album
 {
     /**
-     * @ORM\ManyToOne(targetEntity="Album", inversedBy="comments")
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
+     * @Assert\File(mimeTypes={ "application/pdf" })
+     */
+    private $image;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Album", inversedBy="commentaire")
      * @ORM\JoinColumn(name="album_id", referencedColumnName="id")
      */
     protected $album;
@@ -179,5 +189,21 @@ class Album
     public function getAlbum()
     {
         return $this->album;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
     }
 }
