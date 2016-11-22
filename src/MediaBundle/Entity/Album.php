@@ -23,7 +23,7 @@ class Album
     private $image;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Album", inversedBy="commentaire")
+     * @ORM\ManyToOne(targetEntity="Commentaire", inversedBy="commentaire")
      * @ORM\JoinColumn(name="album_id", referencedColumnName="id")
      */
     protected $album;

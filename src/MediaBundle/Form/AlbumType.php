@@ -24,7 +24,7 @@ class AlbumType extends AbstractType
                     array('Soul', 'Hip-Hop', 'Rock'),
                     array('Soul', 'Hip-Hop', 'Rock')
                 )))
-            ->add('image', FileType::class, array('label' => 'Image Album'))
+            ->add('image', FileType::class, array('label' => 'Image Album', ))
 
             ->add('support', ChoiceType::class, array(
                 'choice_list' => new ChoiceList(
