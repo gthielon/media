@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\ChoiceList\ChoiceList;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class AlbumType extends AbstractType
 {
@@ -23,6 +24,7 @@ class AlbumType extends AbstractType
                     array('Soul', 'Hip-Hop', 'Rock'),
                     array('Soul', 'Hip-Hop', 'Rock')
                 )))
+            ->add('image', FileType::class, array('label' => 'Image Album'))
 
             ->add('support', ChoiceType::class, array(
                 'choice_list' => new ChoiceList(
